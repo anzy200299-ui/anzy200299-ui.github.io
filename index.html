@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script>
+    try {
+      var saved = localStorage.getItem("site-lang");
+      if (saved === "zh" || saved === "en") document.documentElement.lang = saved;
+    } catch (err) {}
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dylan Yan — Efficient Generative Models</title>
+  <meta name="description" content="Dylan Yan is an M.Eng. student at Shanghai Jiao Tong University working on efficient generative models, diffusion acceleration, and generative visual reasoning.">
+  <meta name="theme-color" content="#101114">
+  <link rel="canonical" href="https://anzy200299-ui.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Dylan Yan — Efficient Generative Models">
+  <meta property="og:description" content="Efficient generative models, diffusion acceleration, and generative visual reasoning.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anzy200299-ui.github.io/">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dylan Yan",
+    "email": "anzy200299@gmail.com",
+    "url": "https://anzy200299-ui.github.io/",
+    "sameAs": [
+      "https://github.com/anzy200299-ui",
+      "https://blog.csdn.net/m0_52555753"
+    ],
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Shanghai Jiao Tong University"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#about">
+    <span class="lang-en">Skip to content</span>
+    <span class="lang-zh">跳到正文</span>
+  </a>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Dylan Yan</a>
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#about"><span class="lang-en">About</span><span class="lang-zh">关于</span></a>
+        <a href="#research"><span class="lang-en">Research</span><span class="lang-zh">研究</span></a>
+        <a href="#papers"><span class="lang-en">Papers</span><span class="lang-zh">论文</span></a>
+        <a href="#experience"><span class="lang-en">Experience</span><span class="lang-zh">经历</span></a>
+        <a href="#contact"><span class="lang-en">Contact</span><span class="lang-zh">联系</span></a>
+      </nav>
+      <div class="nav-tools">
+        <button class="tool-btn" id="lang-toggle" type="button" aria-label="切换到中文">
+          <span class="lang-en">中文</span>
+          <span class="lang-zh">EN</span>
+        </button>
+        <a class="tool-btn nav-github" href="https://github.com/anzy200299-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="lang-en">Menu</span>
+          <span class="lang-zh">菜单</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Introduction">
+      <canvas id="field" aria-hidden="true"></canvas>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="wrap hero-copy">
+        <p class="eyebrow">
+          <span class="lang-en">Shanghai Jiao Tong University · EPIC Lab</span>
+          <span class="lang-zh">上海交通大学 · EPIC Lab</span>
+        </p>
+        <h1>Dylan<br><em>Yan</em></h1>
+        <p class="lede">
+          <span class="lang-en">I work on making generative models faster without giving up quality: training-free diffusion acceleration, adaptive token computation, and generative visual reasoning.</span>
+          <span class="lang-zh">我研究怎么让生成模型更快，同时不把质量做丢：免训练的扩散加速、按语义挑选 token，以及生成式视觉推理。</span>
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="mailto:anzy200299@gmail.com">
+            <span class="lang-en">Email</span><span class="lang-zh">邮件</span>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/anzy200299-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-ghost" href="#papers">
+            <span class="lang-en">Papers</span><span class="lang-zh">论文</span>
+          </a>
+        </div>
+      </div>
+      <div class="wrap hero-foot">
+        <p>
+          <span class="lang-en">M.Eng. Electronics and Information Engineering · expected March 2027</span>
+          <span class="lang-zh">电子信息硕士 · 预计 2027 年 3 月毕业</span>
+        </p>
+        <p>
+          <span class="lang-en">A live sketch of adaptive token selection</span>
+          <span class="lang-zh">自适应 token 选择的动态示意</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="wrap">
+        <div class="stats-grid">
+          <article class="stat">
+            <b>9.16×</b>
+            <p>
+              <span class="lang-en">LoReS on FLUX.1-dev. Six of eight quality metrics improved.</span>
+              <span class="lang-zh">LoReS 在 FLUX.1-dev 上的加速，八项质量指标里六项更好。</span>
+            </p>
+          </article>
+          <article class="stat">
+            <b>10×</b>
+            <p>
+              <span class="lang-en">SpecEdit on Qwen-Image-Edit, training-free. Up to 7× on FLUX.1-Kontext-dev.</span>
+              <span class="lang-zh">SpecEdit 在 Qwen-Image-Edit 上免训练加速，FLUX.1-Kontext-dev 上最高约 7 倍。</span>
+            </p>
+          </article>
+          <article class="stat">
+            <b>ECCV</b>
+            <p>
+              <span class="lang-en">AViTS, accepted 2026. 6.34× on FLUX.1-dev without quality loss.</span>
+              <span class="lang-zh">AViTS 被 ECCV 2026 接收。FLUX.1-dev 上 6.34 倍加速，质量不掉。</span>
+            </p>
+          </article>
+          <article class="stat">
+            <b>6,160</b>
+            <p>
+              <span class="lang-en">Financial research tasks synthesized for FEAST-9B.</span>
+              <span class="lang-zh">为 FEAST-9B 合成的金融研究任务数。</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">01 — <span class="lang-en">Profile</span><span class="lang-zh">简介</span></p>
+          <h2><span class="lang-en">About</span><span class="lang-zh">关于</span></h2>
+        </header>
+        <div class="split">
+          <div class="prose">
+            <p>
+              <span class="lang-en">I am an M.Eng. student in Electronics and Information Engineering at Shanghai Jiao Tong University, expected to graduate in March 2027. I am a research assistant at EPIC Lab with Prof. Linfeng Zhang, in collaboration with Alibaba Group.</span>
+              <span class="lang-zh">我是上海交通大学电子信息专业硕士生，预计 2027 年 3 月毕业。现在在 EPIC Lab 做研究助理，导师是 Linfeng Zhang 教授，合作方包括阿里巴巴集团。</span>
+            </p>
+            <p>
+              <span class="lang-en">In 2026 I have been working with MMLab at Nanyang Technological University, in Prof. Ziwei Liu’s group, as sole first author of a survey on generative visual reasoning. Earlier, I contributed to on-chip electro-optic modulation in the Integrated Microwave Photonics Lab, and my undergraduate thesis used interpretable machine learning to predict electrolyte properties.</span>
+              <span class="lang-zh">2026 年我与新加坡南洋理工大学 MMLab（Ziwei Liu 教授课题组）合作，以独立一作完成生成式视觉推理综述。更早的时候，我在集成微波光子学实验室参与过片上电光调制，本科毕业论文用可解释机器学习预测电解液性质。</span>
+            </p>
+            <p>
+              <span class="lang-en">I also keep a CSDN technical blog with more than 10,000 followers.</span>
+              <span class="lang-zh">我在 CSDN 写技术博客，关注者超过一万。</span>
+            </p>
+          </div>
+          <dl class="facts">
+            <div>
+              <dt><span class="lang-en">Base</span><span class="lang-zh">所在</span></dt>
+              <dd><span class="lang-en">Shanghai</span><span class="lang-zh">上海</span></dd>
+            </div>
+            <div>
+              <dt><span class="lang-en">Lab</span><span class="lang-zh">实验室</span></dt>
+              <dd>EPIC Lab, SJTU</dd>
+            </div>
+            <div>
+              <dt><span class="lang-en">Advisor</span><span class="lang-zh">导师</span></dt>
+              <dd>Prof. Linfeng Zhang</dd>
+            </div>
+            <div>
+              <dt><span class="lang-en">Also</span><span class="lang-zh">合作</span></dt>
+              <dd>MMLab, NTU · Prof. Ziwei Liu</dd>
+            </div>
+            <div>
+              <dt><span class="lang-en">Stack</span><span class="lang-zh">工具</span></dt>
+              <dd>Python, C++, PyTorch, Diffusers</dd>
+            </div>
+            <div>
+              <dt><span class="lang-en">Writing</span><span class="lang-zh">写作</span></dt>
+              <dd><a href="https://blog.csdn.net/m0_52555753" target="_blank" rel="noopener noreferrer">CSDN · 10,000+</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">02 — <span class="lang-en">Focus</span><span class="lang-zh">方向</span></p>
+          <h2><span class="lang-en">Research</span><span class="lang-zh">研究</span></h2>
+        </header>
+        <div class="cards">
+          <article class="card">
+            <span class="idx">01</span>
+            <h3><span class="lang-en">Diffusion acceleration</span><span class="lang-zh">扩散加速</span></h3>
+            <p>
+              <span class="lang-en">Training-free trajectory search and feature caching, so denoising spends compute where it changes the image. Representative work: LoReS and LinCa.</span>
+              <span class="lang-zh">用免训练的轨迹筛选和特征缓存，把去噪计算花在真正改变图像的地方。代表工作是 LoReS 和 LinCa。</span>
+            </p>
+            <a href="#lores">LoReS</a>
+          </article>
+          <article class="card">
+            <span class="idx">02</span>
+            <h3><span class="lang-en">Dynamic tokens</span><span class="lang-zh">动态 token</span></h3>
+            <p>
+              <span class="lang-en">High-resolution computation goes to tokens that are semantically important and still changing. Representative work: AViTS and SpecEdit.</span>
+              <span class="lang-zh">高分辨率计算只分给语义关键、并且仍在变化的 token。代表工作是 AViTS 和 SpecEdit。</span>
+            </p>
+            <a href="#avits">AViTS</a>
+          </article>
+          <article class="card">
+            <span class="idx">03</span>
+            <h3><span class="lang-en">Editing and video</span><span class="lang-zh">编辑与视频</span></h3>
+            <p>
+              <span class="lang-en">The same idea extends past text-to-image. SpecEdit reaches up to 10× on Qwen-Image-Edit, and LinCa also accelerates video models.</span>
+              <span class="lang-zh">加速不限于文生图。SpecEdit 在 Qwen-Image-Edit 上最高约 10 倍，LinCa 也覆盖视频模型。</span>
+            </p>
+            <a href="#specedit">SpecEdit</a>
+          </article>
+          <article class="card">
+            <span class="idx">04</span>
+            <h3><span class="lang-en">Visual reasoning</span><span class="lang-zh">视觉推理</span></h3>
+            <p>
+              <span class="lang-en">A task-centered survey with NTU MMLab: which state a visual task needs, and where a generative model’s reasoning actually comes from. Sole first author.</span>
+              <span class="lang-zh">和 NTU MMLab 一起整理视觉任务需要什么样的状态，以及生成模型的推理能力从哪里来。独立一作综述。</span>
+            </p>
+            <a href="#survey"><span class="lang-en">Survey</span><span class="lang-zh">综述</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="papers">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">03 — <span class="lang-en">Writing</span><span class="lang-zh">论文</span></p>
+          <h2><span class="lang-en">Papers</span><span class="lang-zh">论文</span></h2>
+        </header>
+        <div class="filters" role="group" aria-label="Filter papers">
+          <button type="button" data-filter="all" aria-pressed="true">
+            <span class="lang-en">All</span><span class="lang-zh">全部</span>
+          </button>
+          <button type="button" data-filter="lead" aria-pressed="false">
+            <span class="lang-en">Leading author</span><span class="lang-zh">一作</span>
+          </button>
+          <button type="button" data-filter="collab" aria-pressed="false">
+            <span class="lang-en">Collaboration</span><span class="lang-zh">合作</span>
+          </button>
+        </div>
+
+        <article class="paper" id="lores" data-kind="lead">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>
+              <span class="lang-en">LoReS: Low-Resolution Selection for Faster-and-Better Diffusion Generation</span>
+              <span class="lang-zh">LoReS：面向更快且更好扩散生成的低分辨率筛选</span>
+            </h3>
+            <p class="authors"><strong>Dylan Yan</strong>* <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-note">
+              <span class="lang-en">Under review at ICLR 2027 · co-first author</span>
+              <span class="lang-zh">ICLR 2027 在投 · 共同一作</span>
+            </p>
+            <p class="result">
+              <span class="lang-en">On FLUX.1-dev / DrawBench200, 9.16× speedup with six of eight quality metrics improved, and ImageReward up 32% at the reference latency.</span>
+              <span class="lang-zh">在 FLUX.1-dev / DrawBench200 上达到 9.16 倍加速，八项质量指标中六项提升；同等延迟下 ImageReward 提高 32%。</span>
+            </p>
+          </div>
+          <div class="paper-links"></div>
+        </article>
+
+        <article class="paper" id="survey" data-kind="lead">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>
+              <span class="lang-en">A Survey of Generative Visual Reasoning</span>
+              <span class="lang-zh">生成式视觉推理综述</span>
+            </h3>
+            <p class="authors"><strong>Dylan Yan</strong></p>
+            <p class="paper-note">
+              <span class="lang-en">Under review · sole first author, with MMLab, NTU</span>
+              <span class="lang-zh">在投 · 独立一作，合作于南洋理工大学 MMLab</span>
+            </p>
+            <p class="result">
+              <span class="lang-en">A task-centered taxonomy linking visual tasks to state representations, and separating generator-level reasoning from externally supplied plans.</span>
+              <span class="lang-zh">以任务为中心，把视觉推理任务和状态表示对应起来，并区分模型自身的推理与外部给出的计划。</span>
+            </p>
+          </div>
+          <div class="paper-links"></div>
+        </article>
+
+        <article class="paper" id="feast" data-kind="lead">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>
+              <span class="lang-en">FEAST: Aligning Agent Failures with Real-World Evidence for Financial Research Task Synthesis</span>
+              <span class="lang-zh">FEAST：将智能体失败与真实世界证据对齐的金融研究任务合成</span>
+            </h3>
+            <p class="authors"><strong>Dylan Yan</strong>* <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-note">
+              <span class="lang-en">Under review at ACL · co-first author</span>
+              <span class="lang-zh">ACL 在投 · 共同一作</span>
+            </p>
+            <p class="result">
+              <span class="lang-en">6,160 tasks synthesized from 77 seeds. FEAST-9B improves FSC Global T2/T3 by 19.33/27.38 points and FAB V1.1/V2 by 30.00/33.33 points over the base model.</span>
+              <span class="lang-zh">从 77 个种子问题合成 6,160 个任务。FEAST-9B 相对基座，FSC Global T2/T3 提升 19.33/27.38 个点，FAB V1.1/V2 提升 30.00/33.33 个点。</span>
+            </p>
+          </div>
+          <div class="paper-links"></div>
+        </article>
+
+        <article class="paper" id="specedit" data-kind="lead">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>
+              <span class="lang-en">SpecEdit: Training-Free Acceleration for Diffusion-based Image Editing via Semantic Locking</span>
+              <span class="lang-zh">SpecEdit：基于语义锁定的扩散图像编辑免训练加速</span>
+            </h3>
+            <p class="authors"><strong>Dylan Yan</strong>*, Shikang Zheng*, Haoran Qin*, Xiaobing Tu, Yinggui Wang, Jiacheng Liu, Jiaxuan Ren, Yuqi Lin, Peiliang Cai, Jinkui Ren, Xiantao Zhang, and Linfeng Zhang</p>
+            <p class="paper-note">
+              <span class="lang-en">Under review at NeurIPS 2026 · co-first author</span>
+              <span class="lang-zh">NeurIPS 2026 在投 · 共同一作</span>
+            </p>
+            <p class="result">
+              <span class="lang-en">Up to 10× on Qwen-Image-Edit and 7× on FLUX.1-Kontext-dev, and up to 13× combined with complementary acceleration.</span>
+              <span class="lang-zh">Qwen-Image-Edit 上最高约 10 倍，FLUX.1-Kontext-dev 上约 7 倍；与其他加速方法合用时最高约 13 倍。</span>
+            </p>
+          </div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2605.02152" target="_blank" rel="noopener noreferrer">arXiv</a></div>
+        </article>
+
+        <article class="paper" id="avits" data-kind="lead">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>
+              <span class="lang-en">AViTS: Adaptive Spatiotemporal Token Selection for Efficient Dynamic-Resolution Generation</span>
+              <span class="lang-zh">AViTS：面向高效动态分辨率生成的自适应时空 token 选择</span>
+            </h3>
+            <p class="authors">Haoran Qin*, <strong>Dylan Yan</strong>*, Shikang Zheng, Xiaobing Tu, Jiacheng Liu, Yuqi Lin, Chang Zou, JinShan Liu, Peiliang Cai, Xiantao Zhang, Jinkui Ren, and Linfeng Zhang</p>
+            <p class="paper-note">
+              <span class="lang-en">Accepted at ECCV 2026 · co-first author, listed second</span>
+              <span class="lang-zh">ECCV 2026 已接收 · 共同一作，署名第二</span>
+            </p>
+            <p class="result">
+              <span class="lang-en">6.34× on FLUX.1-dev and nearly 9× on Qwen-Image-Edit / FLUX.1-Kontext-dev without quality loss; up to 14.76× with distilled models.</span>
+              <span class="lang-zh">FLUX.1-dev 上 6.34 倍，Qwen-Image-Edit / FLUX.1-Kontext-dev 上近 9 倍，质量不掉；蒸馏模型上最高 14.76 倍。</span>
+            </p>
+          </div>
+          <div class="paper-links"></div>
+        </article>
+
+        <article class="paper" id="linca" data-kind="collab">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>
+              <span class="lang-en">LinCa: Accelerating Diffusion Models via Learnable Decomposed Feature Caching</span>
+              <span class="lang-zh">LinCa：通过可学习分解特征缓存加速扩散模型</span>
+            </h3>
+            <p class="authors">JinShan Liu*, Haoran Qin*, Xiaobing Tu, Jiacheng Liu, Jiahui Hu, <strong>Dylan Yan</strong>, Yukun Xie, Kerui Shen, Jinkui Ren, Yuqi Lin, Xiantao Zhang, and Linfeng Zhang</p>
+            <p class="paper-note"><span class="lang-en">Manuscript</span><span class="lang-zh">文稿</span></p>
+            <p class="result">
+              <span class="lang-en">Near-lossless acceleration, including 5.51× on FLUX.1-dev, with under 0.2% extra parameters.</span>
+              <span class="lang-zh">接近无损的加速，其中包括 FLUX.1-dev 上 5.51 倍，额外参数不到 0.2%。</span>
+            </p>
+          </div>
+          <div class="paper-links"></div>
+        </article>
+
+        <article class="paper" id="anomaly" data-kind="collab">
+          <div class="paper-year">2026</div>
+          <div>
+            <h3>AnomalyAgent: Agentic Industrial Anomaly Synthesis via Tool-Augmented Reinforcement Learning</h3>
+            <p class="authors">Jiaming Su, Tengchao Yang, Ruikang Zhang, <strong>Dylan Yan</strong>, Haoyu Sun, and Linfeng Zhang</p>
+            <p class="paper-note"><span class="lang-en">arXiv preprint</span><span class="lang-zh">arXiv 预印本</span></p>
+          </div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2604.07900" target="_blank" rel="noopener noreferrer">arXiv</a></div>
+        </article>
+
+        <article class="paper" id="cache" data-kind="collab">
+          <div class="paper-year">2025</div>
+          <div>
+            <h3>
+              <span class="lang-en">A Survey on Cache Methods in Diffusion Models: Toward Efficient Multi-Modal Generation</span>
+              <span class="lang-zh">扩散模型缓存方法综述：迈向高效多模态生成</span>
+            </h3>
+            <p class="authors">Jiacheng Liu, Xinyu Wang, Yuqi Lin, Zhikai Wang, Peiru Wang, Peiliang Cai, Qinming Zhou, <strong>Dylan Yan</strong>, Zexuan Yan, et al.</p>
+            <p class="paper-note"><span class="lang-en">arXiv preprint</span><span class="lang-zh">arXiv 预印本</span></p>
+          </div>
+          <div class="paper-links"><a href="https://arxiv.org/abs/2510.19755" target="_blank" rel="noopener noreferrer">arXiv</a></div>
+        </article>
+
+        <p class="fineprint">
+          <span class="lang-en">* Equal contribution. Co-author lists are withheld while a manuscript is under anonymous review.</span>
+          <span class="lang-zh">* 表示同等贡献。匿名审稿中的稿件暂不列出合作者。</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">04 — <span class="lang-en">Path</span><span class="lang-zh">路径</span></p>
+          <h2><span class="lang-en">Experience</span><span class="lang-zh">经历</span></h2>
+        </header>
+
+        <article class="tl">
+          <time>2025 — <span class="lang-en">Now</span><span class="lang-zh">至今</span></time>
+          <div>
+            <h3>EPIC Lab, Shanghai Jiao Tong University / Alibaba</h3>
+            <p>
+              <span class="lang-en">Research assistant with Prof. Linfeng Zhang. Training-free diffusion acceleration: LoReS, SpecEdit, AViTS, and LinCa.</span>
+              <span class="lang-zh">研究助理，导师 Linfeng Zhang 教授。免训练扩散加速：LoReS、SpecEdit、AViTS 和 LinCa。</span>
+            </p>
+          </div>
+        </article>
+        <article class="tl">
+          <time>2026</time>
+          <div>
+            <h3>MMLab, Nanyang Technological University</h3>
+            <p>
+              <span class="lang-en">Generative visual reasoning with Prof. Ziwei Liu’s group. Sole first author of the survey.</span>
+              <span class="lang-zh">与 Ziwei Liu 教授课题组合作生成式视觉推理，综述为独立一作。</span>
+            </p>
+          </div>
+        </article>
+        <article class="tl">
+          <time>2024 — 2026</time>
+          <div>
+            <h3>
+              <span class="lang-en">Integrated Microwave Photonics Lab, SJTU</span>
+              <span class="lang-zh">上海交通大学集成微波光子学实验室</span>
+            </h3>
+            <p>
+              <span class="lang-en">Contributed to an on-chip electro-optic conversion and amplification platform: more than 6 dB net gain and more than 110 GHz bandwidth. Associated paper in <em>Photonics Research</em>, 2026.</span>
+              <span class="lang-zh">参与片上电光转换与放大平台，净增益超过 6 dB，电光带宽超过 110 GHz。相关论文见于 Photonics Research，2026。</span>
+            </p>
+          </div>
+        </article>
+        <article class="tl">
+          <time>2023 — 2024</time>
+          <div>
+            <h3>
+              <span class="lang-en">Undergraduate thesis, Suzhou University</span>
+              <span class="lang-zh">苏州大学本科毕业论文</span>
+            </h3>
+            <p>
+              <span class="lang-en">Interpretable machine learning for electrolyte properties, using descriptors from molecular dynamics. Associated paper in <em>Chinese Journal of Structural Chemistry</em>, 2024.</span>
+              <span class="lang-zh">用分子动力学描述符和可解释机器学习预测电解液性质。相关论文见于《结构化学》，2024。</span>
+            </p>
+          </div>
+        </article>
+
+        <div class="two">
+          <div>
+            <p class="kicker"><span class="lang-en">Education</span><span class="lang-zh">教育</span></p>
+            <article class="edu">
+              <h3>
+                <span class="lang-en">Shanghai Jiao Tong University</span>
+                <span class="lang-zh">上海交通大学</span>
+              </h3>
+              <p>
+                <span class="lang-en">M.Eng. Electronics and Information Engineering · Sep 2024 – Mar 2027 · GPA 3.6/4.0</span>
+                <span class="lang-zh">电子信息硕士 · 2024 年 9 月至 2027 年 3 月 · GPA 3.6/4.0</span>
+              </p>
+            </article>
+            <article class="edu">
+              <h3>
+                <span class="lang-en">Suzhou University</span>
+                <span class="lang-zh">苏州大学</span>
+              </h3>
+              <p>
+                <span class="lang-en">B.Eng. Nanoscience and Technology · 2020–2024 · Minor in Artificial Intelligence</span>
+                <span class="lang-zh">纳米科学与技术学士 · 2020–2024 · 辅修人工智能</span>
+              </p>
+            </article>
+          </div>
+          <div>
+            <p class="kicker"><span class="lang-en">Honors</span><span class="lang-zh">荣誉</span></p>
+            <ul class="honors">
+              <li>
+                <span class="lang-en">National Encouragement Scholarship</span>
+                <span class="lang-zh">国家励志奖学金</span>
+              </li>
+              <li>
+                <span class="lang-en">Special Prize Scholarship for Innovation and Entrepreneurship</span>
+                <span class="lang-zh">创新创业特等奖学金</span>
+              </li>
+              <li>
+                <span class="lang-en">National Second Prize, GPLT Team Programming Competition</span>
+                <span class="lang-zh">GPLT 团队程序设计竞赛全国二等奖</span>
+              </li>
+              <li>
+                <span class="lang-en">First Prize, Jiangsu Lanqiao Cup C++ Group A, 2022</span>
+                <span class="lang-zh">江苏省蓝桥杯 C++ A 组一等奖，2022</span>
+              </li>
+              <li>
+                <span class="lang-en">Third Prize, National College Students Mathematics Competition, 2022</span>
+                <span class="lang-zh">全国大学生数学竞赛三等奖，2022</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <p class="kicker"><span class="lang-en">Code</span><span class="lang-zh">代码</span></p>
+          <a class="repo" href="https://github.com/anzy200299-ui/optics-agent" target="_blank" rel="noopener noreferrer">
+            <div class="repo-top">
+              <span>anzy200299-ui / optics-agent</span>
+              <span>Python · Ceviche</span>
+            </div>
+            <h3>optics-agent</h3>
+            <p>
+              <span class="lang-en">Matched-cost photonic inverse-design benchmark.</span>
+              <span class="lang-zh">等计算代价的光子逆向设计基准。</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">05 — <span class="lang-en">Hello</span><span class="lang-zh">联系</span></p>
+          <h2><span class="lang-en">Contact</span><span class="lang-zh">联系</span></h2>
+        </header>
+        <ul class="contact-list">
+          <li>
+            <a href="mailto:anzy200299@gmail.com">
+              <span>Email</span>
+              <strong>anzy200299@gmail.com</strong>
+              <em>→</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/anzy200299-ui" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span>
+              <strong>anzy200299-ui</strong>
+              <em>→</em>
+            </a>
+          </li>
+          <li>
+            <a href="https://blog.csdn.net/m0_52555753" target="_blank" rel="noopener noreferrer">
+              <span>CSDN</span>
+              <strong>blog.csdn.net</strong>
+              <em>→</em>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Dylan Yan · Shanghai</p>
+    <p>© 2026</p>
+  </footer>
+  <script>
+    document.documentElement.classList.add("js");
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>
