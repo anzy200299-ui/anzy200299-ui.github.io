@@ -6,6 +6,7 @@ Dylan Yan is a master’s student in Electronics and Information Engineering at 
 
 Dylan Yan 是上海交通大学电子信息专业硕士生，EPIC Lab 研究助理，研究高效生成模型、扩散模型加速与生成式视觉推理。
 
+- CV: https://anzy200299-ui.github.io/cv.html
 - GitHub: https://github.com/anzy200299-ui
 - Email: anzy200299@gmail.com
 - CSDN: https://blog.csdn.net/m0_52555753
