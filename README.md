@@ -9,5 +9,3 @@ Dylan Yan 是上海交通大学电子信息专业硕士生，EPIC Lab 研究助�
 - GitHub: https://github.com/anzy200299-ui
 - Email: anzy200299@gmail.com
 - CSDN: https://blog.csdn.net/m0_52555753
-
-The display typefaces Fraunces and Outfit are under the SIL Open Font License. See `fonts/OFL.txt`.

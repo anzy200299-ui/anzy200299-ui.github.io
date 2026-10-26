@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dylan Yan — Efficient Generative Models</title>
   <meta name="description" content="Dylan Yan is a master’s student in Electronics and Information Engineering at Shanghai Jiao Tong University and a research assistant in EPIC Lab, working on efficient generative models.">
-  <meta name="theme-color" content="#101114">
+  <meta name="theme-color" content="#f7f7f5">
   <link rel="canonical" href="https://anzy200299-ui.github.io/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="Dylan Yan — Efficient Generative Models">
@@ -49,10 +49,8 @@
       <a class="brand" href="#top">Dylan Yan</a>
       <nav class="nav-links" id="nav-links" aria-label="Primary">
         <a href="#about"><span class="lang-en">About</span><span class="lang-zh">关于</span></a>
-        <a href="#research"><span class="lang-en">Research</span><span class="lang-zh">研究</span></a>
         <a href="#papers"><span class="lang-en">Papers</span><span class="lang-zh">论文</span></a>
         <a href="#experience"><span class="lang-en">Experience</span><span class="lang-zh">经历</span></a>
-        <a href="#contact"><span class="lang-en">Contact</span><span class="lang-zh">联系</span></a>
       </nav>
       <div class="nav-tools">
         <button class="tool-btn" id="lang-toggle" type="button" aria-label="切换到中文">
@@ -69,187 +67,28 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Introduction">
-      <canvas id="field" aria-hidden="true"></canvas>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <div class="wrap hero-copy">
-        <p class="eyebrow">
-          <span class="lang-en">EPIC Lab · Electronics and Information, SJTU</span>
-          <span class="lang-zh">EPIC Lab · 上海交通大学电子信息</span>
-        </p>
-        <h1>Dylan<br><em>Yan</em></h1>
-        <p class="lede">
-          <span class="lang-en">I work on making generative models faster without giving up quality: training-free diffusion acceleration, adaptive token computation, and generative visual reasoning.</span>
-          <span class="lang-zh">我研究怎么让生成模型更快，同时不把质量做丢：免训练的扩散加速、按语义挑选 token，以及生成式视觉推理。</span>
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-solid" href="mailto:anzy200299@gmail.com">
-            <span class="lang-en">Email</span><span class="lang-zh">邮件</span>
-          </a>
-          <a class="btn btn-ghost" href="https://github.com/anzy200299-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="btn btn-ghost" href="#papers">
-            <span class="lang-en">Papers</span><span class="lang-zh">论文</span>
-          </a>
-        </div>
-      </div>
-      <div class="wrap hero-foot">
-        <p>
-          <span class="lang-en">M.Eng. Electronics and Information Engineering · expected March 2027</span>
-          <span class="lang-zh">电子信息硕士 · 预计 2027 年 3 月毕业</span>
+    <section class="intro" id="about">
+      <div class="wrap">
+        <h1>Dylan Yan</h1>
+        <p class="role">
+          <span class="lang-en">M.Eng. student in Electronics and Information Engineering, Shanghai Jiao Tong University. Research assistant, EPIC Lab. Expected March 2027.</span>
+          <span class="lang-zh">上海交通大学电子信息专业硕士生，EPIC Lab 研究助理，预计 2027 年 3 月毕业。</span>
         </p>
         <p>
-          <span class="lang-en">A live sketch of adaptive token selection</span>
-          <span class="lang-zh">自适应 token 选择的动态示意</span>
+          <span class="lang-en">I work on efficient generative models: training-free diffusion acceleration, adaptive token computation, and generative visual reasoning. My advisor is Prof. Linfeng Zhang; the group also works with Alibaba Group. In 2026 I collaborated with MMLab at Nanyang Technological University (Prof. Ziwei Liu) as sole first author of a survey on generative visual reasoning, and as a co-author of VBVR-Pro.</span>
+          <span class="lang-zh">研究高效生成模型：扩散模型免训练加速、自适应 token 计算和生成式视觉推理。导师是 Linfeng Zhang 教授，合作方包括阿里巴巴集团。2026 年与南洋理工大学 MMLab（Ziwei Liu 教授课题组）合作，独立一作完成生成式视觉推理综述，并参与 VBVR-Pro。</span>
         </p>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div class="wrap">
-        <div class="stats-grid">
-          <article class="stat">
-            <b>9.16×</b>
-            <p>
-              <span class="lang-en">LoReS on FLUX.1-dev. Six of eight quality metrics improved.</span>
-              <span class="lang-zh">LoReS 在 FLUX.1-dev 上的加速，八项质量指标里六项更好。</span>
-            </p>
-          </article>
-          <article class="stat">
-            <b>10×</b>
-            <p>
-              <span class="lang-en">SpecEdit on Qwen-Image-Edit, training-free. Up to 7× on FLUX.1-Kontext-dev.</span>
-              <span class="lang-zh">SpecEdit 在 Qwen-Image-Edit 上免训练加速，FLUX.1-Kontext-dev 上最高约 7 倍。</span>
-            </p>
-          </article>
-          <article class="stat">
-            <b>ECCV</b>
-            <p>
-              <span class="lang-en">AViTS, accepted 2026. 6.34× on FLUX.1-dev without quality loss.</span>
-              <span class="lang-zh">AViTS 被 ECCV 2026 接收。FLUX.1-dev 上 6.34 倍加速，质量不掉。</span>
-            </p>
-          </article>
-          <article class="stat">
-            <b>6,160</b>
-            <p>
-              <span class="lang-en">Financial research tasks synthesized for FEAST-9B.</span>
-              <span class="lang-zh">为 FEAST-9B 合成的金融研究任务数。</span>
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="kicker">01 — <span class="lang-en">Profile</span><span class="lang-zh">简介</span></p>
-          <h2><span class="lang-en">About</span><span class="lang-zh">关于</span></h2>
-        </header>
-        <div class="split">
-          <div class="prose">
-            <p>
-              <span class="lang-en">I am Dylan Yan, a master’s student in Electronics and Information Engineering at Shanghai Jiao Tong University, expected to graduate in March 2027. I am a research assistant in EPIC Lab, advised by Prof. Linfeng Zhang and working with Alibaba Group.</span>
-              <span class="lang-zh">我是 Dylan Yan，上海交通大学电子信息专业硕士生，预计 2027 年 3 月毕业。目前在 EPIC Lab 做研究助理，导师是 Linfeng Zhang 教授，合作方包括阿里巴巴集团。</span>
-            </p>
-            <p>
-              <span class="lang-en">My work is on efficient generative models: training-free acceleration for diffusion, adaptive token computation, and generative visual reasoning. In 2026 I have also been collaborating with MMLab at Nanyang Technological University, in Prof. Ziwei Liu’s group, as sole first author of a survey on generative visual reasoning.</span>
-              <span class="lang-zh">我做高效生成模型：扩散模型的免训练加速、自适应 token 计算，以及生成式视觉推理。2026 年同时与新加坡南洋理工大学 MMLab（Ziwei Liu 教授课题组）合作，以独立一作完成生成式视觉推理综述。</span>
-            </p>
-            <p>
-              <span class="lang-en">I also keep a CSDN technical blog with more than 10,000 followers.</span>
-              <span class="lang-zh">我在 CSDN 写技术博客，关注者超过一万。</span>
-            </p>
-          </div>
-          <dl class="facts">
-            <div>
-              <dt><span class="lang-en">Base</span><span class="lang-zh">所在</span></dt>
-              <dd><span class="lang-en">Shanghai</span><span class="lang-zh">上海</span></dd>
-            </div>
-            <div>
-              <dt><span class="lang-en">Program</span><span class="lang-zh">专业</span></dt>
-              <dd>
-                <span class="lang-en">Electronics and Information Engineering, SJTU</span>
-                <span class="lang-zh">上海交通大学电子信息</span>
-              </dd>
-            </div>
-            <div>
-              <dt><span class="lang-en">Lab</span><span class="lang-zh">实验室</span></dt>
-              <dd>EPIC Lab, SJTU</dd>
-            </div>
-            <div>
-              <dt><span class="lang-en">Advisor</span><span class="lang-zh">导师</span></dt>
-              <dd>Prof. Linfeng Zhang</dd>
-            </div>
-            <div>
-              <dt><span class="lang-en">Also</span><span class="lang-zh">合作</span></dt>
-              <dd>MMLab, NTU · Prof. Ziwei Liu</dd>
-            </div>
-            <div>
-              <dt><span class="lang-en">Stack</span><span class="lang-zh">工具</span></dt>
-              <dd>Python, C++, PyTorch, Diffusers</dd>
-            </div>
-            <div>
-              <dt><span class="lang-en">Writing</span><span class="lang-zh">写作</span></dt>
-              <dd><a href="https://blog.csdn.net/m0_52555753" target="_blank" rel="noopener noreferrer">CSDN · 10,000+</a></dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="research">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="kicker">02 — <span class="lang-en">Focus</span><span class="lang-zh">方向</span></p>
-          <h2><span class="lang-en">Research</span><span class="lang-zh">研究</span></h2>
-        </header>
-        <div class="cards">
-          <article class="card">
-            <span class="idx">01</span>
-            <h3><span class="lang-en">Diffusion acceleration</span><span class="lang-zh">扩散加速</span></h3>
-            <p>
-              <span class="lang-en">Training-free trajectory search and feature caching, so denoising spends compute where it changes the image. Representative work: LoReS and LinCa.</span>
-              <span class="lang-zh">用免训练的轨迹筛选和特征缓存，把去噪计算花在真正改变图像的地方。代表工作是 LoReS 和 LinCa。</span>
-            </p>
-            <a href="#lores">LoReS</a>
-          </article>
-          <article class="card">
-            <span class="idx">02</span>
-            <h3><span class="lang-en">Dynamic tokens</span><span class="lang-zh">动态 token</span></h3>
-            <p>
-              <span class="lang-en">High-resolution computation goes to tokens that are semantically important and still changing. Representative work: AViTS and SpecEdit.</span>
-              <span class="lang-zh">高分辨率计算只分给语义关键、并且仍在变化的 token。代表工作是 AViTS 和 SpecEdit。</span>
-            </p>
-            <a href="#avits">AViTS</a>
-          </article>
-          <article class="card">
-            <span class="idx">03</span>
-            <h3><span class="lang-en">Editing and video</span><span class="lang-zh">编辑与视频</span></h3>
-            <p>
-              <span class="lang-en">The same idea extends past text-to-image. SpecEdit reaches up to 10× on Qwen-Image-Edit, and LinCa also accelerates video models.</span>
-              <span class="lang-zh">加速不限于文生图。SpecEdit 在 Qwen-Image-Edit 上最高约 10 倍，LinCa 也覆盖视频模型。</span>
-            </p>
-            <a href="#specedit">SpecEdit</a>
-          </article>
-          <article class="card">
-            <span class="idx">04</span>
-            <h3><span class="lang-en">Visual reasoning</span><span class="lang-zh">视觉推理</span></h3>
-            <p>
-              <span class="lang-en">A task-centered survey with NTU MMLab: which state a visual task needs, and where a generative model’s reasoning actually comes from. Sole first author.</span>
-              <span class="lang-zh">和 NTU MMLab 一起整理视觉任务需要什么样的状态，以及生成模型的推理能力从哪里来。独立一作综述。</span>
-            </p>
-            <a href="#survey"><span class="lang-en">Survey</span><span class="lang-zh">综述</span></a>
-          </article>
-        </div>
+        <p class="links">
+          <a href="mailto:anzy200299@gmail.com">anzy200299@gmail.com</a>
+          <a href="https://github.com/anzy200299-ui" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://blog.csdn.net/m0_52555753" target="_blank" rel="noopener noreferrer">CSDN</a>
+        </p>
       </div>
     </section>
 
     <section class="section" id="papers">
       <div class="wrap">
-        <header class="section-head">
-          <p class="kicker">03 — <span class="lang-en">Writing</span><span class="lang-zh">论文</span></p>
-          <h2><span class="lang-en">Papers</span><span class="lang-zh">论文</span></h2>
-        </header>
+        <h2><span class="lang-en">Papers</span><span class="lang-zh">论文</span></h2>
         <div class="filters" role="group" aria-label="Filter papers">
           <button type="button" data-filter="all" aria-pressed="true">
             <span class="lang-en">All</span><span class="lang-zh">全部</span>
@@ -406,10 +245,7 @@
 
     <section class="section" id="experience">
       <div class="wrap">
-        <header class="section-head">
-          <p class="kicker">04 — <span class="lang-en">Path</span><span class="lang-zh">路径</span></p>
-          <h2><span class="lang-en">Experience</span><span class="lang-zh">经历</span></h2>
-        </header>
+        <h2><span class="lang-en">Experience</span><span class="lang-zh">经历</span></h2>
 
         <article class="tl">
           <time>2025 — <span class="lang-en">Now</span><span class="lang-zh">至今</span></time>
@@ -472,52 +308,6 @@
           </div>
         </div>
 
-        <div class="code-block">
-          <p class="kicker"><span class="lang-en">Code</span><span class="lang-zh">代码</span></p>
-          <a class="repo" href="https://github.com/anzy200299-ui/optics-agent" target="_blank" rel="noopener noreferrer">
-            <div class="repo-top">
-              <span>anzy200299-ui / optics-agent</span>
-              <span>Python · Ceviche</span>
-            </div>
-            <h3>optics-agent</h3>
-            <p>
-              <span class="lang-en">Matched-cost photonic inverse-design benchmark.</span>
-              <span class="lang-zh">等计算代价的光子逆向设计基准。</span>
-            </p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="kicker">05 — <span class="lang-en">Hello</span><span class="lang-zh">联系</span></p>
-          <h2><span class="lang-en">Contact</span><span class="lang-zh">联系</span></h2>
-        </header>
-        <ul class="contact-list">
-          <li>
-            <a href="mailto:anzy200299@gmail.com">
-              <span>Email</span>
-              <strong>anzy200299@gmail.com</strong>
-              <em>→</em>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/anzy200299-ui" target="_blank" rel="noopener noreferrer">
-              <span>GitHub</span>
-              <strong>anzy200299-ui</strong>
-              <em>→</em>
-            </a>
-          </li>
-          <li>
-            <a href="https://blog.csdn.net/m0_52555753" target="_blank" rel="noopener noreferrer">
-              <span>CSDN</span>
-              <strong>blog.csdn.net</strong>
-              <em>→</em>
-            </a>
-          </li>
-        </ul>
       </div>
     </section>
   </main>
