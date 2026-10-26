@@ -80,15 +80,4 @@
     });
   }
 
-  document.querySelectorAll(".filters button").forEach(function (button) {
-    button.addEventListener("click", function () {
-      const kind = button.dataset.filter;
-      document.querySelectorAll(".filters button").forEach(function (item) {
-        item.setAttribute("aria-pressed", String(item === button));
-      });
-      document.querySelectorAll(".paper").forEach(function (paper) {
-        paper.hidden = kind !== "all" && paper.dataset.kind !== kind;
-      });
-    });
-  });
 })();

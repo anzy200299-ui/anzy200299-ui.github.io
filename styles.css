@@ -124,19 +124,17 @@ h2 {
   font-weight: 650;
 }
 
-.filters { display: flex; gap: 8px; margin-bottom: 4px; }
+.group { margin-top: 28px; }
 
-.filters button {
-  border: 1px solid var(--line);
-  background: transparent;
-  padding: 4px 8px;
-  cursor: pointer;
+.group h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
 }
 
-.filters button[aria-pressed="true"] {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
+.group-line {
+  margin: 4px 0 0;
+  color: var(--muted);
 }
 
 .paper {
@@ -151,7 +149,7 @@ h2 {
 
 .paper-year { color: var(--muted); }
 
-.paper h3 {
+.paper h4 {
   margin: 0;
   font-size: 1rem;
   font-weight: 650;
