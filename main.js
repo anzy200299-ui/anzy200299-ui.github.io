@@ -4,8 +4,8 @@
     zh: "Dylan Yan — 高效生成模型"
   };
   const descriptions = {
-    en: "Dylan Yan is an M.Eng. student at Shanghai Jiao Tong University working on efficient generative models, diffusion acceleration, and generative visual reasoning.",
-    zh: "Dylan Yan，上海交通大学电子信息硕士生，研究高效生成模型、扩散模型加速与生成式视觉推理。"
+    en: "Dylan Yan is a master’s student in Electronics and Information Engineering at Shanghai Jiao Tong University and a research assistant in EPIC Lab, working on efficient generative models.",
+    zh: "Dylan Yan，上海交通大学电子信息专业硕士生，EPIC Lab 研究助理，研究高效生成模型。"
   };
 
   const root = document.documentElement;
