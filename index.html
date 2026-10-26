@@ -109,6 +109,10 @@
               <span class="lang-zh">LoReS：面向更快且更好扩散生成的低分辨率筛选</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong>* <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">Ranks cheap low-resolution trajectories, keeps a small set of candidates, and re-ranks the final high-resolution images. No extra training.</span>
+              <span class="lang-zh">先给低成本的低分辨率轨迹排序，留下一小批候选，再对最终的高分辨率图像重新排序。不需要额外训练。</span>
+            </p>
             <p class="paper-note">
               <span class="lang-en">Under review at ICLR 2027 · co-first author · 9.16× on FLUX.1-dev</span>
               <span class="lang-zh">ICLR 2027 在投 · 共同一作 · FLUX.1-dev 上 9.16 倍</span>
@@ -125,6 +129,10 @@
               <span class="lang-zh">生成式视觉推理综述</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong></p>
+            <p class="paper-blurb">
+              <span class="lang-en">Organizes visual reasoning by the state a task needs, and separates a model’s own reasoning from a plan supplied from outside.</span>
+              <span class="lang-zh">按任务需要的状态来整理视觉推理，并把模型自己的推理和外部给定的计划分开。</span>
+            </p>
             <p class="paper-note">
               <span class="lang-en">Under review · sole first author, with MMLab, NTU</span>
               <span class="lang-zh">在投 · 独立一作，合作于南洋理工大学 MMLab</span>
@@ -141,9 +149,13 @@
               <span class="lang-zh">VBVR-Pro：面向原生视觉推理的可扩展、可验证评测套件</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong> <span class="lang-en">and co-authors, including Ziwei Liu</span><span class="lang-zh">及合作者，包括 Ziwei Liu</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">A closed-loop suite that treats image and video generation as the reasoning process, with 300 procedural tasks and rewards that can be checked.</span>
+              <span class="lang-zh">把图像和视频生成当作推理过程的闭环套件，包含 300 个程序化任务，奖励可以核验。</span>
+            </p>
             <p class="paper-note">
-              <span class="lang-en">arXiv preprint · 300 procedural tasks and verifiable rewards</span>
-              <span class="lang-zh">arXiv 预印本 · 300 个程序化任务与可验证奖励</span>
+              <span class="lang-en">arXiv preprint</span>
+              <span class="lang-zh">arXiv 预印本</span>
             </p>
           </div>
           <div class="paper-links">
@@ -160,6 +172,10 @@
               <span class="lang-zh">FEAST：将智能体失败与真实世界证据对齐的金融研究任务合成</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong>* <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">Builds new financial-research tasks from where agents fail, grounded in filings and other public evidence, and trains FEAST-9B on them.</span>
+              <span class="lang-zh">从智能体失败的地方出发，对照财报等公开证据合成金融研究任务，并用这些任务训练 FEAST-9B。</span>
+            </p>
             <p class="paper-note">
               <span class="lang-en">Under review at ACL · co-first author · 6,160 synthesized tasks</span>
               <span class="lang-zh">ACL 在投 · 共同一作 · 合成 6,160 个任务</span>
@@ -176,6 +192,10 @@
               <span class="lang-zh">SpecEdit：基于语义锁定的扩散图像编辑免训练加速</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong>* <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">A low-resolution draft marks the tokens an edit actually changes, so high-resolution denoising runs only on those tokens.</span>
+              <span class="lang-zh">用低分辨率草稿标出编辑真正改动的 token，高分辨率去噪只计算这些 token。</span>
+            </p>
             <p class="paper-note">
               <span class="lang-en">Under review at CVPR 2027 · co-first author · up to 10× on Qwen-Image-Edit</span>
               <span class="lang-zh">CVPR 2027 在投 · 共同一作 · Qwen-Image-Edit 上最高约 10 倍</span>
@@ -192,6 +212,10 @@
               <span class="lang-zh">AViTS：面向高效动态分辨率生成的自适应时空 token 选择</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong>* <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">Selects tokens that match the text and are still changing, and spends high-resolution computation on those tokens.</span>
+              <span class="lang-zh">选出与文本相关、并且仍在变化的 token，把高分辨率计算花在这些 token 上。</span>
+            </p>
             <p class="paper-note">
               <span class="lang-en">Accepted at ECCV 2026 · co-first author, listed second · 6.34× on FLUX.1-dev</span>
               <span class="lang-zh">ECCV 2026 已接收 · 共同一作，署名第二 · FLUX.1-dev 上 6.34 倍</span>
@@ -208,6 +232,10 @@
               <span class="lang-zh">LinCa：通过可学习分解特征缓存加速扩散模型</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong> <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">Splits cached features by how stable they are over time, then predicts each part with a very small learned module.</span>
+              <span class="lang-zh">按特征随时间是否稳定来拆分缓存，再用很小的模块分别预测。</span>
+            </p>
             <p class="paper-note"><span class="lang-en">Accepted at ECCV 2026 · 5.51× on FLUX.1-dev</span><span class="lang-zh">ECCV 2026 已接收 · FLUX.1-dev 上 5.51 倍</span></p>
           </div>
           <div class="paper-links"><a href="https://arxiv.org/abs/2608.17973" target="_blank" rel="noopener noreferrer">arXiv</a></div>
@@ -218,6 +246,10 @@
           <div>
             <h3>AnomalyAgent: Agentic Industrial Anomaly Synthesis via Tool-Augmented Reinforcement Learning</h3>
             <p class="authors"><strong>Dylan Yan</strong> <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">An agent that retrieves knowledge, checks its own output, and revises it, so synthesized industrial anomalies look more realistic.</span>
+              <span class="lang-zh">智能体检索相关知识，检查自己的结果并反复修改，从而合成更真实的工业异常样本。</span>
+            </p>
             <p class="paper-note"><span class="lang-en">Accepted at ACM MM 2026</span><span class="lang-zh">ACM MM 2026 已接收</span></p>
           </div>
           <div class="paper-links"><a href="https://arxiv.org/abs/2604.07900" target="_blank" rel="noopener noreferrer">arXiv</a></div>
@@ -231,6 +263,10 @@
               <span class="lang-zh">扩散模型缓存方法综述：迈向高效多模态生成</span>
             </h3>
             <p class="authors"><strong>Dylan Yan</strong> <span class="lang-en">and co-authors</span><span class="lang-zh">及合作者</span></p>
+            <p class="paper-blurb">
+              <span class="lang-en">Reviews feature-caching methods that cut the cost of multi-step diffusion for image, editing, and video generation.</span>
+              <span class="lang-zh">综述用特征缓存降低多步扩散的计算量，覆盖图像、编辑和视频生成。</span>
+            </p>
             <p class="paper-note"><span class="lang-en">arXiv preprint</span><span class="lang-zh">arXiv 预印本</span></p>
           </div>
           <div class="paper-links"><a href="https://arxiv.org/abs/2510.19755" target="_blank" rel="noopener noreferrer">arXiv</a></div>

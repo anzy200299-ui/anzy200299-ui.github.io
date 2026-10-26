@@ -157,6 +157,8 @@ h2 {
   font-weight: 650;
 }
 
+.paper-blurb { margin: 6px 0 0; }
+
 .authors,
 .paper-note,
 .fineprint,
